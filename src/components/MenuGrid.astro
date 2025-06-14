@@ -1,0 +1,155 @@
+---
+const menuItems = [
+    {
+        category: "Appetizers",
+        items: [
+            {
+                name: "Truffle Arancini",
+                description:
+                    "Crispy risotto balls with black truffle and parmesan",
+                price: "$18",
+            },
+            {
+                name: "Pan-Seared Scallops",
+                description:
+                    "Fresh scallops with cauliflower purée and pancetta",
+                price: "$24",
+            },
+            {
+                name: "Burrata Caprese",
+                description:
+                    "Creamy burrata with heirloom tomatoes and basil oil",
+                price: "$16",
+            },
+        ],
+    },
+    {
+        category: "Main Courses",
+        items: [
+            {
+                name: "Wagyu Beef Tenderloin",
+                description:
+                    "Premium wagyu with roasted vegetables and red wine jus",
+                price: "$58",
+            },
+            {
+                name: "Pan-Roasted Salmon",
+                description:
+                    "Atlantic salmon with lemon herb crust and seasonal vegetables",
+                price: "$32",
+            },
+            {
+                name: "Lobster Risotto",
+                description:
+                    "Creamy arborio rice with fresh lobster and saffron",
+                price: "$42",
+            },
+        ],
+    },
+    {
+        category: "Desserts",
+        items: [
+            {
+                name: "Chocolate Soufflé",
+                description:
+                    "Warm dark chocolate soufflé with vanilla bean ice cream",
+                price: "$14",
+            },
+            {
+                name: "Crème Brûlée",
+                description: "Classic vanilla custard with caramelized sugar",
+                price: "$12",
+            },
+            {
+                name: "Tiramisu",
+                description:
+                    "Traditional Italian dessert with espresso and mascarpone",
+                price: "$13",
+            },
+        ],
+    },
+];
+---
+
+<section id="menu" class="py-20 bg-slate-900 relative">
+    <div class="absolute inset-0 opacity-10">
+        <img
+            src="/Menu.jpg"
+            alt="Menu background"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-amber-200 bg-clip-text text-transparent"
+                >
+                    Our Menu
+                </h2>
+                <div
+                    class="w-24 h-1 bg-gradient-to-r from-amber-500 to-pink-400 mx-auto mb-6"
+                >
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <img
+                    src="/Menu.jpg"
+                    alt="Menu item"
+                    class="w-full h-64 object-cover rounded-2xl"
+                />
+                <img
+                    src="/Menu2.jpg"
+                    alt="Menu item"
+                    class="w-full h-64 object-cover rounded-2xl"
+                />
+                <img
+                    src="/Menu3.jpg"
+                    alt="Menu item"
+                    class="w-full h-64 object-cover rounded-2xl"
+                />
+            </div>
+
+            <div class="space-y-16">
+                {
+                    menuItems.map((category) => (
+                        <div>
+                            <h3 class="text-3xl font-bold text-center mb-12 text-white">
+                                {category.category}
+                            </h3>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                {category.items.map((item) => (
+                                    <div class="bg-slate-800/70 rounded-2xl p-6 hover:bg-slate-700/70 transition-all duration-300 border border-amber-900/30">
+                                        <div class="flex justify-between items-start mb-3">
+                                            <h4 class="text-xl font-semibold text-white">
+                                                {item.name}
+                                            </h4>
+                                            <span class="text-2xl font-bold text-pink-400">
+                                                {item.price}
+                                            </span>
+                                        </div>
+                                        <p class="text-slate-300 leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="text-center mt-16">
+                <a
+                    href="#contact"
+                    class="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                    Make Reservation
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

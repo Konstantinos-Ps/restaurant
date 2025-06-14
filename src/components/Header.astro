@@ -1,0 +1,168 @@
+---
+// Client-side JavaScript needed for mobile menu
+const isMobileMenuOpen = false;
+---
+
+<header
+    class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-amber-900/30"
+>
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-amber-300"
+                >
+                    <path
+                        d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"
+                    ></path>
+                    <path d="M6 17h12"></path>
+                </svg>
+                <span class="text-2xl font-bold text-white tracking-tight"
+                    >Savoria</span
+                >
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a
+                    href="/"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Home</a
+                >
+                <a
+                    href="#about"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >About</a
+                >
+                <a
+                    href="#menu"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Menu</a
+                >
+                <a
+                    href="#testimonials"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Reviews</a
+                >
+                <a
+                    href="#contact"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Contact</a
+                >
+            </div>
+
+            <!-- Desktop CTA Button -->
+            <div class="hidden md:block">
+                <a
+                    href="#contact"
+                    class="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-6 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+                >
+                    Book Table
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button
+                id="mobile-menu-button"
+                class="md:hidden text-slate-300 hover:text-pink-300"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-4">
+                <a
+                    href="#home"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Home</a
+                >
+                <a
+                    href="#about"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >About</a
+                >
+                <a
+                    href="#menu"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Menu</a
+                >
+                <a
+                    href="#testimonials"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Reviews</a
+                >
+                <a
+                    href="#contact"
+                    class="text-slate-300 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    >Contact</a
+                >
+                <a
+                    href="#contact"
+                    class="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-6 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-center"
+                >
+                    Book Table
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuButton.addEventListener("click", () => {
+            const isExpanded =
+                menuButton.getAttribute("aria-expanded") === "true";
+            menuButton.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+
+            // Toggle between hamburger and close icon
+            if (mobileMenu.classList.contains("hidden")) {
+                menuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        `;
+            } else {
+                menuButton.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `;
+            }
+        });
+    });
+</script>

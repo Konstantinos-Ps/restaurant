@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+    <Header />
+    <main
+        class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+    >
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-2xl mx-auto">
+                <!-- 404 Number -->
+                <div
+                    class="text-8xl md:text-9xl font-bold mb-8 bg-gradient-to-r from-white via-pink-200 to-amber-200 bg-clip-text text-transparent"
+                >
+                    404
+                </div>
+
+                <!-- Chef Hat Icon -->
+                <div class="mb-8">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="80"
+                        height="80"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="text-amber-300 mx-auto"
+                    >
+                        <path
+                            d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"
+                        ></path>
+                        <path d="M6 17h12"></path>
+                    </svg>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+                    Oops! Recipe Not Found
+                </h1>
+
+                <!-- Description -->
+                <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                    It seems this page has gone off the menu. Let's get you back
+                    to our delicious offerings.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                >
+                    <a
+                        href="/"
+                        class="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                    >
+                        Back to Home
+                    </a>
+                    <a
+                        href="/#menu"
+                        class="border-2 border-pink-400 text-pink-300 hover:bg-pink-400/10 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:border-pink-300"
+                    >
+                        View Menu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

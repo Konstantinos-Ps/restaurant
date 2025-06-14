@@ -1,0 +1,97 @@
+---
+const testimonials = [
+    {
+        name: "Sarah Mitchell",
+        role: "Food Critic",
+        content:
+            "Savoria delivers an exceptional dining experience that perfectly balances innovation with tradition.",
+        rating: 5,
+    },
+    {
+        name: "James Rodriguez",
+        role: "Local Foodie",
+        content:
+            "The attention to detail and quality of ingredients is unmatched. This has become our go-to place.",
+        rating: 5,
+    },
+    {
+        name: "Emily Chen",
+        role: "Travel Blogger",
+        content:
+            "A hidden gem that showcases the very best of contemporary cuisine. Absolutely phenomenal.",
+        rating: 5,
+    },
+];
+---
+
+<section id="testimonials" class="py-20 bg-slate-800 relative">
+    <div class="absolute inset-0 opacity-20">
+        <img
+            src="/Testimonials.jpg"
+            alt="Happy customers"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent tracking-tight"
+                >
+                    What Our Guests Say
+                </h2>
+                <div
+                    class="w-24 h-1 bg-gradient-to-r from-amber-500 to-pink-400 mx-auto"
+                >
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                {
+                    testimonials.map((testimonial, index) => (
+                        <div class="bg-slate-900/80 rounded-2xl p-8 border border-amber-900/30">
+                            <div class="flex mb-6">
+                                {Array.from({ length: testimonial.rating }).map(
+                                    (_, i) => (
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            class="text-pink-400"
+                                        >
+                                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                                        </svg>
+                                    ),
+                                )}
+                            </div>
+
+                            <blockquote class="text-slate-200 text-lg leading-relaxed mb-6 italic font-light">
+                                "{testimonial.content}"
+                            </blockquote>
+
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-amber-600 to-pink-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-semibold text-lg">
+                                        {testimonial.name.charAt(0)}
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <div class="font-semibold text-white">
+                                        {testimonial.name}
+                                    </div>
+                                    <div class="text-slate-400 text-sm font-medium">
+                                        {testimonial.role}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
